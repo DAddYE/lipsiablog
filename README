@@ -12,6 +12,7 @@ Rails 2+
 Haml 2+
 Lipsiadmin 4.1+
 Rmagick
+CodeRay
 
 ==Fatures
 
@@ -22,12 +23,15 @@ Editor:: Quick comments editor. Thanks to Editable Grids we can quickly manage s
 Boxes:: Manage side boxes
 Localization:: You can translate (also backend) in a fast and simple way with default I18n
 Rss:: Feed rss
+Code Hightlighting:: Using <pre><code> in your html it will be hightlighted with coderay.
 
 ==Install
 
 Is pretty simple download the code
 
   git clone git://github.com/Lipsiasoft/lipsiablog.git
+  cd lipsiablog
+  rake gems:install
 
 Now load the sample (db/sample.sql) data with your mysql client
 
