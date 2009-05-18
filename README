@@ -20,6 +20,8 @@ Spam:: Custom spam filter, we don't want to use akismet & c because sucks!
 Contents:: Content Managment, like other blogging system we can manage quickly "static" pages
 Editor:: Quick comments editor. Thanks to Editable Grids we can quickly manage spam comments & c.
 Boxes:: Manage side boxes
+Localization:: You can translate (also backend) in a fast and simple way with default I18n
+Rss:: Feed rss
 
 ==Install
 
@@ -41,4 +43,5 @@ Password:: admin
 Views:: app/views/frontend
 Config:: config/config.yml
 Database:: config/database.yml
-Settings:: Login into backend
+Settings:: Login into backend and click on settings
+Locale:: config/locales
