@@ -16,7 +16,7 @@ Community:: http://groups.google.com/group/lipsiadmin
 * Rmagick
 * CodeRay
 
-==Fatures
+==Features
 
 Api:: Blogger, MovableType, Metaweblog
 Spam:: Custom spam filter, we don't use akismet & c because sucks!
