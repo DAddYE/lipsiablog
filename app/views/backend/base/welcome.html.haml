@@ -1,0 +1,28 @@
+=title "Dashboard"
+.padding
+  %table.full
+    %tr
+      %td{:style=>"width:50%;vertical-align:top"}
+        =box tt("What you can do?") do
+          %li=link_to_function tt("Write an article"), "Backend.app.load('/backend/posts/new/0')"
+          %li=link_to_function tt("Read comments"), "Backend.app.load('/backend/comments.js')"
+          %li=link_to_function tt("Change settings"), "Backend.app.load('/backend/settings')"
+          %li=link_to_function tt("Add boxes"), "Backend.app.load('/backend/boxes/new')"
+          %li=link_to_function tt("Add categories"), "Backend.app.load('/backend/categories/new')"
+          
+      %td{:style=>"width:50%;vertical-align:top"}
+        =box tt("Last comments") do
+          -for comment in Comment.ham.all(:limit => 5, :order => "created_at DESC") do
+            %li
+              =comment.name
+              ha scritto su
+              =comment.post.name
+    %tr
+      %td{:style=>"width:50%;vertical-align:top"}
+        =box tt("Popular articles") do
+          -for post in Post.for_menu_0.all(:order => "comments_count DESC", :limit => 5)
+            %li=link_to_function post.name + " (#{t("backend.labels.comment", :count => post.comments_count)})", "Backend.app.load('/backend/posts/#{post.id}/edit')"
+      %td{:style=>"width:50%;vertical-align:top"}
+        =box tt("Last articles") do
+          -for post in Post.for_menu_0.all(:limit => 5)
+            %li=link_to_function post.name, "Backend.app.load('/backend/posts/#{post.id}/edit')"

@@ -1,0 +1,25 @@
+=title "Contact us"
+=description "Contact LipsiaSoft s.r.l."
+
+-if flash[:ok].blank?
+  -form_tag :action => :contact do
+    %h1.post-title Contact Us
+    .post-content
+      %table.full
+        %tr
+          %td Full Name
+          %td=text_field :contact, :name
+        %tr
+          %td Email
+          %td=text_field :contact, :email
+        %tr
+          %td{:colspan=>2} Message
+        %tr
+          %td{:colspan=>2}=text_area :contact, :description
+        %tr
+          %td.align-right{:colspan=>2}=submit_tag "Send!"
+        %tr
+          %td.warning{:colspan=>2}=flash[:warning]
+
+-else
+  .warning.margin-top=flash[:ok]

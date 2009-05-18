@@ -1,0 +1,43 @@
+=simple_error_messages_for :setting
+-tab :general do
+  %table
+    %tr
+      %td=human_name_for :setting, :name
+      %td=text_field :setting, :name
+    %tr
+      %td=human_name_for :setting, :website
+      %td=text_field :setting, :website
+    %tr
+      %td=human_name_for :setting, :email
+      %td=text_field :setting, :email
+    %tr
+      %td=human_name_for :setting, :suffix
+      %td=text_field :setting, :suffix
+    %tr
+      %td=human_name_for :setting, :menus
+      %td=text_field :setting, :menus
+    %tr
+      %td=human_name_for :setting, :page_limit
+      %td=text_field :setting, :page_limit
+    %tr
+      %td=human_name_for :setting, :feed_limit
+      %td=text_field :setting, :feed_limit
+    %tr
+      %td=human_name_for :setting, :feed_complete
+      %td=check_box :setting, :feed_complete
+    %tr
+      %td=human_name_for :setting, :comments
+      %td=check_box :setting, :comments
+    %tr
+      %td=human_name_for :setting, :moderate_comments
+      %td=check_box :setting, :moderate_comments
+
+-tab "Spam" do
+  %table.full{:cellspacing=>5}
+    %tr
+      %td.fixed=human_name_for :setting, :spam_black_list
+      %td=text_area :setting, :spam_black_list, :style => "height:200px;width:100%"
+    %tr
+      %td=human_name_for :setting, :spam_max_links
+      %td=text_field :setting, :spam_max_links, :style => "width:20px"
+      

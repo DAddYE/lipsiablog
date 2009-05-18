@@ -1,0 +1,27 @@
+=simple_error_messages_for :comment
+-tab :general do
+  %table
+    %tr
+      %td=human_name_for :comment, :name
+      %td=text_field :comment, :name
+    %tr
+      %td=human_name_for :comment, :email
+      %td=text_field :comment, :email
+    %tr
+      %td=human_name_for :comment, :website
+      %td=text_field :comment, :website
+    %tr
+      %td=human_name_for :comment, :description
+      %td=text_area :comment, :description
+    %tr
+      %td=human_name_for :comment, :post
+      %td
+        =collection_select :comment, :post_id, Post.all, :id, :name
+        =open_form image_tag("backend/edit.gif", :style => "vertical-align:middle"), "/backend/posts/'+$('comment_post_id').value+'/edit"
+    %tr
+      %td=human_name_for :comment, :ip
+      %td=text_field :comment, :ip
+    %tr
+      %td=human_name_for :comment, :spam
+      %td=check_box :comment, :spam
+      

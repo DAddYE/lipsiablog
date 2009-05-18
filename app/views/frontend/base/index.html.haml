@@ -1,0 +1,43 @@
+-if @category
+  -title "Posted in #{@category.name}"
+  -@posts = @category.posts.with(:comments).for_menu_0.search(params.merge(:fields => "name,description_short")).paginate(params.merge(:limit => Setting.first.page_limit))
+-else
+  -title "Backend for your rails app"
+  -@posts = Post.with([:categories, :comments]).for_menu_0.search(params.merge(:fields => "name,description_short")).paginate(params.merge(:limit => Setting.first.page_limit))
+
+-description "Lipsiadmin is a backend that reduce time of developping admin for your Ruby on Rails app."
+-keywords truncate(@posts.collect(&:tags_formatted).join(",").split(",").uniq.join(", "), :length => 255)
+
+-if !@posts.blank?
+
+  -for post in @posts
+    %h1.post-title=link_to post.name, post_path(post)
+    .post-content
+      ~highlight post.description_short_formatted, params[:query]
+      -unless post.description_long.blank?
+        .align-right=link_to "Continue: #{post.name}", post_path(post)
+    .post-ft
+      -if post.categories
+        In
+        =truncate post.categories.collect(&:name).uniq.join(", "), :length => 80
+        ="|"
+      By 
+      %strong=post.account.full_name
+      on
+      =post.created_at.strftime("%d/%m/%Y at %H:%M")
+      ="|"
+      =link_to "Comments (#{post.comments.ham.size})", post_path(post)
+  
+  .center
+    Mostra Articoli
+    -if params[:start].to_i < @posts.all(:limit => Post.for_menu_0.size).size
+      =link_to "older", :action => :page, :start => params[:start].to_i + Setting.first.page_limit
+    -if params[:start].to_i > 0 && params[:start].to_i < @posts.all(:limit => Post.for_menu_0.size).size
+      ="|"
+    -if params[:start].to_i > 0 && (params[:start].to_i - Setting.first.page_limit) == 0
+      =link_to "newer", :action => :index
+    -elsif params[:start].to_i > 0
+      =link_to "newer", :action => :page, :start => params[:start].to_i - Setting.first.page_limit
+  
+-else
+  =warning

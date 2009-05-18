@@ -1,0 +1,54 @@
+-if @post
+  -title @post.name
+  -description @post.description_short
+  -keywords @post.tags
+  
+  %h1.post-title=@post.name
+  .post-content
+    ~@post.description_short_formatted
+    ~@post.description_long_formatted
+  
+  -unless @post.static?
+    .post-ft
+      -if @post.categories.first
+        In
+        =truncate @post.categories.collect(&:name).uniq.join(", "), :length => 80
+        ="|"
+      By 
+      %strong=@post.account.full_name
+      on
+      =@post.created_at.strftime("%d/%m/%Y at %H:%M")
+      ="|"
+      =link_to "Commenti (#{@post.comments.ham.reject(&:new_record?).size})"
+  
+  -unless @post.comments.ham.reject(&:new_record?).empty?
+    =image_tag "frontend/lipsiablog_28.png"
+    -for comment in @post.comments.reject(&:new_record?)
+      =comment_box(comment)
+  
+  -if Setting.first.comments && @post.commentable
+    %p=image_tag "frontend/lipsiablog_37.png"
+    
+    -form_tag :action => :add_comment, :id => @post, :anchor => :form do
+      =link_to "", "", :name => :form
+      %table.full{:cellspacing => 5}
+        %tr
+          %th Name
+          %td=text_field :comment, :name, :style => "width:200px"
+          %th Email (will not be showed)
+          %td=text_field :comment, :email
+        %tr
+          %th Website (not required)
+          %td{:colspan=>3}=text_field :comment, :website
+        %tr
+          %th{:colspan=>4} Comment
+        %tr
+          %td{:colspan=>4}=text_area :comment, :description
+        %tr
+          %td.align-right{:colspan=>4}
+            =submit_tag "Send!"
+        %tr
+          %td{:colspan=>4}=error_messages_for :comment
+-else
+  -title "Ooops some thing went wrong"
+  =warning

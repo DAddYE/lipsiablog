@@ -1,0 +1,34 @@
+=simple_error_messages_for :post
+-tab :general do
+  %table.full
+    %tr
+      %td{:style=>"width:150px"}=human_name_for :post, :name
+      %td=text_field :post, :name
+    %tr
+      %td=human_name_for :post, :tags
+      %td=text_field :post, :tags
+    %tr
+      %td=human_name_for :post, :commentable
+      %td=check_box :post, :commentable
+    %tr
+      %td=human_name_for :post, :draft
+      %td=check_box :post, :draft
+    %tr
+      %td=human_name_for :post, :categories
+      %td
+        %span#category_names=@post.categories.collect(&:name).join(", ") rescue "Nessuna"
+        =hidden_field :post, :category_ids, :value => @post.category_ids.join(",")
+        =open_grid image_tag("backend/new.gif", :style => "vertical-align:bottom"), "/backend/categories.js", "gridPanel", |
+          :update => "$('post_category_ids').value = selections.collect(function(s) { return s.id }).join(',');"+ |
+          "$('category_names').innerHTML = selections.collect(function(s) { return s.data['categories.name'] }).join(', ');" |
+    %tr
+      %td=human_name_for :post, :menu
+      %td=select :post, :menu, Setting.menu_range.collect { |i| [(i==0 ? "Nessuno" : "Menu #{i}"), i] }
+    %tr
+      %td=human_name_for :post, :position
+      %td=text_field :post, :position
+      
+    =hidden_field :post, :menu
+    
+=tab_editor :post, :description_short, :description_short
+=tab_editor :post, :description_long,  :description_long

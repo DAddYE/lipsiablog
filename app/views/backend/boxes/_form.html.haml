@@ -1,0 +1,12 @@
+=simple_error_messages_for :box
+-tab :general do
+  %table
+    %tr
+      %td=human_name_for :box, :name
+      %td=text_field :box, :name
+    %tr
+      %td=human_name_for :box, :position
+      %td=text_field :box, :position
+
+=tab_editor :box, :description, :box_content
+      

@@ -1,0 +1,44 @@
+Lipsiablog is a lightweight, simple, fast, easy blogging system written in rails and lipsiadmin
+
+Author:: Davide D'Agostino
+Copyright:: Copyright (c) 2009 Lipsiasoft s.r.l. (http://www.lipsiasoft.com)
+License:: MIT License (http://www.opensource.org/licenses/mit-license.php)
+Website:: http://www.lipsiadmin.com
+Community:: http://groups.google.com/group/lipsiadmin
+
+==Requirements
+
+Rails 2+
+Haml 2+
+Lipsiadmin 4.1+
+Rmagick
+
+==Fatures
+
+Api:: Blogger, MovableType, Metaweblog
+Spam:: Custom spam filter, we don't want to use akismet & c because sucks!
+Contents:: Content Managment, like other blogging system we can manage quickly "static" pages
+Editor:: Quick comments editor. Thanks to Editable Grids we can quickly manage spam comments & c.
+Boxes:: Manage side boxes
+
+==Install
+
+Is pretty simple download the code
+
+  git clone git://github.com/Lipsiasoft/lipsiablog.git
+
+Now load the sample (db/sample.sql) data with your mysql client
+
+  script/server
+  
+Login into the backend http://localhost:3000/backend with 
+
+User:: info@lipsiasoft.com
+Password:: admin
+
+==Personalize
+
+Views:: app/views/frontend
+Config:: config/config.yml
+Database:: config/database.yml
+Settings:: Login into backend

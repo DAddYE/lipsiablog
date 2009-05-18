@@ -1,0 +1,63 @@
+/*
+* Lipsiasadmin
+* Copyright(c) 2008-2009,LipsiaSoft s.r.l.
+* info@lipsiasoft.com
+* 
+* http://www.lipsiasoft.com
+*/
+body{font-family:tahoma,sans-serif;font-size:12px;margin:0px;padding:0px;text-align:center;color:#283946;background-color:#50AED3;}
+img{border:none;}
+a{text-decoration:none;color:#126FBB;}
+a:hover{color:#283946;}
+form{display:inline;}
+b{color:#2faee7;}
+h1{font-size:12px;}
+h2{font-size:11px;}
+.clear{clear:both;font-size:1px;}
+.bold{font-weight:bold;color:#2faee7;margin-bottom:5px;}
+.center{text-align:center;}
+.justify{text-align: justify;}
+.warning{font-size:14px;font-weight:bold;text-align:center;color:#0074a1;padding-top:20px;}
+.list{ list-style-type:none; margin:10px 0px 0px 15px; padding:0; }
+.menu-right{margin:10px 0px 0px 30px; padding:0;}
+strong.highlight{font-weight:normal;background-color:#fffdc1;}
+/* Article */
+h1.post-title{background:#FFF url(/images/frontend/lipsiablog_11.png);line-height:25px;font-size:13px;padding-left:5px;color:#0074a1;margin-top:0px;font-weight:bold;}
+h1.post-title a {color:#0074a1}
+h1.post-title a:hover {color:#879DA4}
+.post-ft{font-size:11px; text-align:right;margin-bottom:20px;padding-right:5px;color:#879DA4;line-height:25px; background:transparent url(/images/frontend/lipsiablog_22.png) no-repeat;}
+.post-content{padding:0px 0px 5px 10px; border-left:1px solid #cee9f4;}
+blockquote{border-left:3px solid #CEE9F4; margin-left:10px; padding-left:5px; color:#878787;}
+/*pre { background:#232323; color:#00FF00; padding:10px; text-shadow:1px 1px 1px #232323; }
+code { margin: 0px; white-space: pre; font-size:11px; font-family: monospace;}*/
+/*Main Page*/
+#white{background-color:#FFF;padding-bottom:20px;}
+#main{width:980px;margin:0 auto;text-align:left;padding-top:10px;}
+#logo{float:left;}
+#logo-menu{float:left;margin:12px 0px 0px 185px;background-image:url(/images/frontend/lipsiablog_06.png);width:389px;height:24px;font-size:11px;padding:0px;}
+#logo-menu ul{list-style-type:none;margin:4px 0px 0px 25px; padding:0px;}
+#logo-menu li{float:left;padding:0px 10px 0px 10px; margin:0px;}
+#menu{clear:both;height:32px;background-image:url(/images/frontend/lipsiablog_08.png);font-size:11px;font-weight:bold;margin:0px;}
+#menu a {color:#FFF;}
+#menu ul{list-style-type:none;margin:0px 0px 0px 20px;padding:0;}
+#menu li{float:left;text-align:center;margin:0px;padding:0px 10px 0px 10px;line-height:26px;}
+#content{margin:10px 0px 10px 4px;}
+#center{float:left;width:750px;margin:0px 0px 0px 0px;}
+#right{width:200px;float:right;margin-right:5px;}
+#footer{background-color:#50AED3;font-size:11px; color:#FFF; text-align:center; padding:20px 0px 20px 0px;}
+#footer a{color:#FFF;text-decoration:underline;}
+#footer a:hover{color:#FFF;text-decoration:none;}
+/*Fields*/
+.text_field,.password_field,.text_area{border:1px solid #92B3DE;color:#333;padding:3px;margin-top:3px;}
+.text_field_sel,.password_field_sel,.text_area_sel{border:1px solid #F4A019;background-color:#E6EFFA;color:#000;padding:3px;margin-top:3px;}
+.fieldWithErrors{background-color:#ffbdbd;}
+/*Right Box*/
+.lps-box{width:200px}
+.lps-box-hr{background:transparent url(/images/frontend/lipsiablog_13.png) no-repeat;height:5px;font-size:0px;}
+.lps-box-body{background:transparent url(/images/frontend/lipsiablog_16.png) repeat-y;padding:5px;color:#283946;}
+.lps-box-ft{background:transparent url(/images/frontend/lipsiablog_25.png) no-repeat;height:5px;font-size:0px;}
+/*Comment Box*/
+.comment-box{margin:10px 0px 0px 50px;}
+.comment-box-hr{background:transparent url(/images/frontend/lipsiablog_32.png) no-repeat;height:5px;font-size:0px;}
+.comment-box-body{background:transparent url(/images/frontend/lipsiablog_33.png) repeat-y;padding:5px;color:#283946;}
+.comment-box-ft{background:transparent url(/images/frontend/lipsiablog_35.png) no-repeat;height:5px;font-size:0px;}

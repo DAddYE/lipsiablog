@@ -1,0 +1,3 @@
+=edit_title_for(Comment, @comment.name)
+-form_tag({:action => :update, :id => @comment}, :method => :put) do
+  =render :partial => "form"

@@ -1,0 +1,7 @@
+<%= @comment.name.titleize %> ha commentato l'articolo <%= @comment.post.name %>:
+
+<%= @comment.description %>
+
+-------------------------------
+Il mio ip è: <%= @comment.ip %>
+Link: <%= post_url(@comment.post) %>

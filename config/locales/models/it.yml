@@ -1,0 +1,76 @@
+# Questo file è utizzato per tradurre il nome dei modell/tabelle e dei suoi attributi/colonne
+it:
+  activerecord:
+    models:
+      comment: Commento
+      contact: Contatto
+      account: Account
+      attachment: Allegati
+      category: Categoria
+      comments: Commenti
+      setting: Impostazioni
+    attributes:
+      comment:
+        name: Nome
+        description: Commento
+      contact:
+        name: Nominativo
+        description: Messaggio
+      account:
+        name: Nome
+        surname: Cognome
+        created_at: Creato Il
+        updated_at: Aggiornato Il
+        role: Gruppo
+        password_confirmation: Conferma Password
+        created_at: Creato il
+        updated_at: Aggiornato il
+      attachment:
+        attached_file_name: Nome File
+        attached_content_type: Tipo
+        attached_file_size: Dimensione
+        created_at: Creato il
+        updated_at: Aggiornato il
+      box:
+        name: Nome
+        position: Posizione
+        description: Descrizione
+      category:
+        name: Nome
+        posts_count: Posts
+        created_at: Creato Il
+        updated_at: Aggiornato Il
+      comment:
+        name: Nome
+        post_name: Nome Post
+        post: Post
+        description: Descrizione
+        ip: Ip
+        email: Email
+        spam: Spam
+        website: Sito Web
+        created_at: Creato Il
+        updated_at: Aggiornato Il
+      post:
+        name: Nome
+        position: Posizione
+        comments_count: Commenti
+        commentable: Commentabile
+        categories: Categorie
+        description_short: Descrizione Breve
+        description_long: Descrizione Completa
+        draft: Bozza
+        menu: Nel Menu
+        created_at: Creato Il
+        updated_at: Aggiornato Il
+      setting:
+        name: Nome del Blog
+        website: Indirizzo del Blog
+        suffix: Suffisso del blog
+        menus: Menu del Blog
+        page_limit: Limite Post
+        feed_limit: Limita Feed
+        comments: Abilita Commenti
+        moderate_comments: Modera Commenti
+        spam_black_list: Black List
+        spam_max_links: Limite Links

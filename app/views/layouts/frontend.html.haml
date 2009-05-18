@@ -1,0 +1,55 @@
+!!!
+%html{ :xmlns=>"http://www.w3.org/1999/xhtml" }
+  %head
+    %title=yield(:title) || Setting.first.name
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html', :name => "description", :content => "#{yield(:description) || "#{Setting.first.suffix}"}"}
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html', :name => "keywords", :content => yield(:keywords)}
+    %link{ :rel => :alternate, :type => "application/rss+xml", :title => :rss, :href => "/feeds.rss" }
+    =stylesheet_link_tag "standard", "lightbox", "frontend", "highlighter"
+    =javascript_include_tag "ext-core", "lightbox"
+  %body
+    #white
+      #main
+        #logo
+          =link_to image_tag("frontend/lipsiablog.png"), "/"
+        #logo-menu
+          %ul{ :style => "margin:none" }
+            -Post.for_menu_1.each do |p|
+              %li=link_to p.name, post_path(p)
+            %li=link_to "Contact Us", :action => :contact
+        #menu
+          %ul
+            %li=link_to "HOME", "/"
+            -Post.for_menu_2.each do |p|
+              %li=link_to p.name.upcase, post_path(p)
+            %li=link_to "SOURCE", "http://github.com/Lipsiasoft/lipsiadmin", :target => :_blank
+            %li=link_to "FORUM", "http://groups.google.com/group/lipsiadmin", :target => :_blank
+            %li=link_to "ISSUES", "http://github.com/Lipsiasoft/lipsiadmin/issues", :target => :_blank
+            %li=link_to "API", "http://api.lipsiadmin.com", :target => :_blank
+            
+        #content
+          
+          #center=yield
+          
+          #right
+            -lps_box "Search" do
+              -form_tag :action => :search do
+                =text_field_tag :query, params[:query], :style => "width:180px"
+                .align-right=submit_tag "GO"
+                =flash[:search]
+            
+            -if @posts || (@post && !@post.static?)
+              -lps_box "Categories", :style => "margin-top:10px" do
+                %ul.list
+                  -Category.all.each do |category|
+                    %li=link_to_unless_current(category.name, :action => :category, :id => category) { content_tag(:b, category.name) }
+            
+            -for box in Box.ordered
+              -lps_box box.name, :style => "margin-top:10px" do
+                =box.description
+                
+          .clear
+    #footer
+      LipsiaBlog is a product of
+      =link_to "LipsiaSoft s.r.l.", "http://www.lipsiasoft.com", :target => :_blank
+      Via Damiano Chiesa, 15 - 21049 Tradate Varese P.IVA 02944320122

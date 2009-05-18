@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  website: MyString
+  email: MyString
+  suffix: MyString
+  menu: 1
+  page_limit: 1
+  feed_limit: 1
+  feed_complete: false
+  comment: false
+  spam: MyText
+  spam_max_links: 1
+
+two:
+  name: MyString
+  website: MyString
+  email: MyString
+  suffix: MyString
+  menu: 1
+  page_limit: 1
+  feed_limit: 1
+  feed_complete: false
+  comment: false
+  spam: MyText
+  spam_max_links: 1

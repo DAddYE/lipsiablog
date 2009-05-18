@@ -1,0 +1,13 @@
+=simple_error_messages_for :attachment
+-tab :general do
+  %table
+    %tr.attachment
+      %td=human_name_for :attachment, :attached_file_name
+      %td=file_field_tag("account[attachments_attributes][][file]", :style => "width:250px")
+      %td=link_to_function(tl("Remove"), "this.up('.attachment').remove()")
+    
+    %tr#link_add
+      %td{:colspan => 2}
+      %td{:style => "padding-top:15px"}
+        =link_to_function tl("Add") do |page|
+          -page.insert_html(:before, :link_add, "<tr class=\"attachment\"><td>#{human_name_for :attachment, :attached_file_name}:</td><td>" + file_field_tag("account[attachments_attributes][][file]", :style => "width:250px") + "</td><td>" + link_to_function(tl("Remove"), "this.up('.attachment').remove()") + "</td></tr>")

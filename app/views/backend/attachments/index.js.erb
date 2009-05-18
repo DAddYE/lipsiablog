@@ -1,0 +1,121 @@
+var groupingView = new Ext.grid.GroupingView({
+    forceFit: true
+  });
+
+Backend.app.setTitle('<%= list_title_for(Attachment) %>');
+
+var toolbar = new Ext.Toolbar({
+    items: [{
+        handler: add,
+        id: "add",
+        cls: "x-btn-text-icon add",
+        disabled: false,
+        text: Backend.locale.buttons.add
+    },{
+        handler: remove,
+        id: "remove",
+        cls: "x-btn-text-icon remove",
+        disabled: true,
+        text: Backend.locale.buttons.remove
+    }]
+  });
+
+var checkboxSelectionModel = new Ext.grid.CheckboxSelectionModel();
+
+<%= Lipsiadmin::Ext::Store.new { |s| s.url "/backend/attachments.json"; s.fields @column_store.store_fields } %>
+
+groupingStore.setDefaultSort('attachments.created_at', 'DESC');
+
+<%= Lipsiadmin::Ext::ColumnModel.new(:columns => ["checkboxSelectionModel".to_l]) { |c| c.fields @column_store.column_fields } %>
+
+var pagingToolbar = new Ext.PagingToolbar({
+  store: groupingStore,
+  pageSize: 50,
+  displayInfo: true
+});
+
+var gridPanel = new Ext.grid.GridPanel({
+  cm: columnModel,
+  clicksToEdit: 1,
+  border: false,
+  tbar: toolbar,
+  store: groupingStore,
+  view: groupingView,
+  bodyBorder: false,
+  region: "center",
+  viewConfig: {"forceFit": true},
+  bbar: pagingToolbar,
+  id: "grid-attachments",
+  plugins: [new Ext.grid.Search()],
+  sm: checkboxSelectionModel
+});
+
+gridPanel.on("dblclick", show);
+
+checkboxSelectionModel.on('selectionchange', function(){
+  var n = checkboxSelectionModel.getSelected();
+  var btns = toolbar.items.map;
+
+   if(!n){
+    btns.remove.disable();
+    return;
+  } else {
+    btns.remove.enable();
+    return;
+   }
+});
+
+function show(){
+  var window = new Ext.Window({
+    modal: true,
+    maximizable: false,
+    resizable: false,
+    autoLoad: '/backend/attachments/'+checkboxSelectionModel.getSelected().id,
+    buttons: [{
+      text: Backend.locale.buttons.close,
+      handler: function(){ window.close() }
+    }]
+  });
+  window.show();
+  window.hide();
+  window.getUpdater().on('beforeupdate', function(el) { Backend.app.mask(); });
+  window.getUpdater().on('update', function(el) { Backend.app.unmask(); window.center(); window.show() })
+}
+
+function add(){
+  Backend.app.load('/backend/attachments/new');
+}
+
+function remove(){
+  Ext.Msg.confirm(Backend.locale.messages.confirm.title, String.format(Backend.locale.messages.confirm.message, checkboxSelectionModel.getCount()), function(btn, text){
+    if (btn == 'yes'){
+      checkboxSelectionModel.each(function(r){
+        Backend.app.mask();
+        Ext.Ajax.request({
+          url: '/backend/attachments/'+r.id,
+          method: 'DELETE',
+          params: {authenticity_token: 'BnTrpTODdSr58bbKNA3/x9aNbBEwZTmNEJo3YUsIpFo='},
+          success: function(result, request){
+            Backend.app.unmask();
+            var resultValue = Ext.decode(result.responseText); 
+            if (resultValue.success == true){
+              groupingStore.remove(r);
+            } else { 
+              Ext.MessageBox.alert(Backend.locale.messages.alert.title, resultValue.msg);
+              return;
+            }
+          },                
+          failure: function(result, request) {
+            Backend.app.unmask();
+            Ext.Msg.alert(Backend.locale.messages.alert.title, Backend.locale.messages.alert.message);
+          }
+        });
+      })
+    }
+  });
+}
+
+groupingStore.on('beforeload', function(){ Backend.app.mask(); });
+groupingStore.on('load', function(){ Backend.app.unmask(); });
+groupingStore.load();
+Backend.app.addItem(gridPanel)

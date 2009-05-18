@@ -1,0 +1,9 @@
+#lps-lightbox{position:absolute;left:0;width:100%;z-index:15000;text-align:center;line-height:0;}
+#lps-lightbox img{width:auto;height:auto;}
+#lps-lightbox a img{border:none;}
+#lps-lightbox-outerImageContainer{position:relative;background-color:#FFF;border:1px solid #d2e6ec;width:250px;height:250px;margin:0 auto;}
+#lps-lightbox-imageContainer{z-index:16000;padding:10px;}
+#lps-lightbox-loading{position:absolute;top:40%;left:0%;height:25%;width:100%;text-align:center;line-height:0;background:url(/images/lightbox/lb-load.gif) no-repeat center 15%;}
+#lps-lightbox-overlay,
+#lps-lightbox-shim{border:0;position:absolute;top:0;left:0;z-index:14999;width:100%;height:100%;background-color:#879da4;padding:0;margin:0;}
+#lps-lightbox-shim{z-index:89;background-color:transparent;}
