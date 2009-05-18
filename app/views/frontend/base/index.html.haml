@@ -29,7 +29,7 @@
       =link_to "Comments (#{post.comments.ham.size})", post_path(post)
   
   .center
-    Mostra Articoli
+    Show Articles
     -if params[:start].to_i < @posts.all(:limit => Post.for_menu_0.size).size
       =link_to "older", :action => :page, :start => params[:start].to_i + Setting.first.page_limit
     -if params[:start].to_i > 0 && params[:start].to_i < @posts.all(:limit => Post.for_menu_0.size).size
