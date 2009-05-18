@@ -28,6 +28,7 @@ SiteMap:: Google SiteMap Generator
 Pagination:: Using Lipsiadmin
 FullText Search:: Using Lipsiadmin
 Comment:: Enable/Disable/Moderate Comments
+LightBox:: Simple ExtJs LightBox
 
 ==Install
 
