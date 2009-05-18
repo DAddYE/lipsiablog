@@ -1,3 +1,5 @@
+==LipsiaBlog
+
 Lipsiablog is a lightweight, simple, fast, easy blogging system written in rails and lipsiadmin
 
 Author:: Davide D'Agostino
@@ -8,11 +10,11 @@ Community:: http://groups.google.com/group/lipsiadmin
 
 ==Requirements
 
-Rails 2+
-Haml 2+
-Lipsiadmin 4.1+
-Rmagick
-CodeRay
+* Rails 2+
+* Haml 2+
+* Lipsiadmin 4.1+
+* Rmagick
+* CodeRay
 
 ==Fatures
 
