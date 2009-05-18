@@ -17,13 +17,17 @@ CodeRay
 ==Fatures
 
 Api:: Blogger, MovableType, Metaweblog
-Spam:: Custom spam filter, we don't want to use akismet & c because sucks!
+Spam:: Custom spam filter, we don't use akismet & c because sucks!
 Contents:: Content Managment, like other blogging system we can manage quickly "static" pages
 Editor:: Quick comments editor. Thanks to Editable Grids we can quickly manage spam comments & c.
 Boxes:: Manage side boxes
 Localization:: You can translate (also backend) in a fast and simple way with default I18n
 Rss:: Feed rss
 Code Hightlighting:: Using <pre><code> in your html it will be hightlighted with coderay.
+SiteMap:: Google SiteMap Generator
+Pagination:: Using Lipsiadmin
+FullText Search:: Using Lipsiadmin
+Comment:: Enable/Disable/Moderate Comments
 
 ==Install
 
