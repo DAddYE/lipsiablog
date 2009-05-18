@@ -19,7 +19,7 @@
       on
       =@post.created_at.strftime("%d/%m/%Y at %H:%M")
       ="|"
-      =link_to "Commenti (#{@post.comments.ham.reject(&:new_record?).size})"
+      =link_to "Comments (#{@post.comments.ham.reject(&:new_record?).size})"
   
   -unless @post.comments.ham.reject(&:new_record?).empty?
     =image_tag "frontend/lipsiablog_28.png"

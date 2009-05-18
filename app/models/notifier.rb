@@ -26,14 +26,14 @@ class Notifier < ActionMailer::Base
   
   def comment(comment)
     from        comment.email
-    recipients  Setting.first.email
+    recipients  Account.all.collect(&:email).join(", ")
     subject     "[#{Setting.first.name}] Nuovo commento ricevuto"
     body        :comment => comment
   end
 
   def post(post)
     from        post.account.email
-    recipients  Setting.first.email
+    recipients  Account.all.collect(&:email).join(", ")
     subject     "[#{Setting.first.name}] Nuovo articolo inserito"
     body        :post => post
   end
