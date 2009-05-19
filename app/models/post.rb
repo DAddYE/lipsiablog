@@ -67,7 +67,7 @@ private
     text = text =~ /\A<p>/ ? text : "<p>#{text}</p>"
     text.gsub(/<pre><code>(.*?)?<\/code><\/pre>/m) do |code|
       code.gsub!(/<pre>|<\/pre>|<code>|<\/code>/m, "")
-      CodeRay.scan(code, :ruby).div(:css => :class)
+      CodeRay.scan(code.strip, :ruby).div(:css => :class)
     end
   end
 end
