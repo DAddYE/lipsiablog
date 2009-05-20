@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 10) do
     t.string   "name"
     t.string   "email"
     t.string   "website"
-    t.string   "description"
+    t.text     "description"
     t.string   "ip"
     t.boolean  "spam",        :default => false
     t.datetime "created_at"

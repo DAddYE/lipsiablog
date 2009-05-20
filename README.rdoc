@@ -15,6 +15,7 @@ Community:: http://groups.google.com/group/lipsiadmin
 * Lipsiadmin 4.1+
 * Rmagick
 * CodeRay
+* ActionWebService
 
 ==Features
 
@@ -53,6 +54,18 @@ Password:: admin
 
 Views:: app/views/frontend
 Config:: config/config.yml
-Database:: config/database.yml
+Database:: config/database.yml (remember to edit other than user/pwd also socks)
 Settings:: Login into backend and click on settings
 Locale:: config/locales
+
+==Troubles
+  
+Rmagick need Image-Magick so if your gem installation fails 99% is because you don't have it.
+
+So depending on your os you need to install it.
+
+For osx try http://rubyforge.org/frs/download.php/53894/rm_install-1.2.2.zip
+
+For win try http://rubyforge.org/frs/download.php/50370/RMagick-2.9.0-ImageMagick-6.4.8-6-Q8.zip
+
+For linux try google because based on your system you can do (for fedora) yum install ImageMagick

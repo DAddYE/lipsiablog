@@ -107,7 +107,7 @@ CREATE TABLE `comments` (
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `website` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
+  `description` text,
   `ip` varchar(255) DEFAULT NULL,
   `spam` tinyint(1) DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
