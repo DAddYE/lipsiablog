@@ -25,18 +25,16 @@ class Backend::AttachmentsController < BackendController
     html = ""
     
     if attachment.attached_content_type.include?("image")
-      geometry = Lipsiadmin::Attachment::Geometry.from_file(attachment.file)
-      style    = ""
-      # If the height exced our limit
-      if geometry.height > 350
-        style = "height:350px"
-      elsif geometry.width > 640
-        style = "height:640px"
-      end
-      html = "<div style='text-align:center'><img src='#{attachment.url}' style='#{style}' /></div>"
+      thumb    = Lipsiadmin::Attachment::Thumbnail.new(attachment.file, :geometry => "540x380").make
+      geometry = Lipsiadmin::Attachment::Geometry.from_file(thumb)
+      style    = "height:#{geometry.height}px;width:#{geometry.width}px;"
+      html     = "<div style='text-align:center;#{style}'><img src='#{attachment.url}' style='#{style}' /></div>"
     end
     
     html += "<div style='padding:10px;text-align:center;background-color:#FFF;font-size:13px'>#{attachment.url}</div>"
+    
+    # Now we can remove the thumb from our temp
+    File.delete(thumb.path)
     
     render :text => html
   end

@@ -11,7 +11,7 @@ Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   config.load_paths += %W( #{RAILS_ROOT}/app/apis )
 
-  config.gem "lipsiadmin",  :version => "~> 4.1.1"
+  config.gem "lipsiadmin",  :version => "< 5.0"
   config.gem "coderay",     :lib => "coderay"
   config.gem "datanoise-actionwebservice", :lib => "actionwebservice", :source => "http://gems.github.com"
   config.frameworks -= [ :active_resource ]
