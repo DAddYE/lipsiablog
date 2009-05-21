@@ -62,12 +62,22 @@ private
     Category.all.each { |c| c.update_attribute(:posts_count, c.posts.length) }
   end
   
+  # This method format and higlight code for you.
+  # 
+  # You need only provide <code lang="XXX"> where XXX is one of the following
+  # 
+  #   "c", "css", "debug", "delphi", "diff", "html", "java", "java_script", "json", 
+  #   "nitro_xhtml", "plaintext", "rhtml", "ruby", "scheme", "sql", "xml", "yaml"
+  # 
   def format(text)
     return "" if text.blank?
     text = text =~ /\A<p>/ ? text : "<p>#{text}</p>"
-    text.gsub(/<pre><code>(.*?)?<\/code><\/pre>/m) do |code|
-      code.gsub!(/<pre>|<\/pre>|<code>|<\/code>/m, "")
-      CodeRay.scan(code.strip, :ruby).div(:css => :class)
+    # check for pre/code
+    text.scan(/((?:<pre>)?<code\s?(?:lang="(.*?)")?>(.*?)<\/code>(?:<\/pre>)?)/m).each do |m|
+      match, lang, code = *m
+      lang = :ruby if !CodeRay::Scanners.list.include?(lang)
+      text.gsub!(match, CodeRay.scan(code.strip, lang).div(:css => :class))
     end
+    text
   end
 end
