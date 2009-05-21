@@ -24,14 +24,19 @@ class Backend::AttachmentsController < BackendController
     attachment = Attachment.find(params[:id])
     html = ""
     
-    # FIXME: I think there is a better way to do that! Please implement it :D
     if attachment.attached_content_type.include?("image")
-      a = Magick::Image.read(attachment.file.path(:original)).first
-      height = a.columns > 350 ? 350 : a.columns
-      html = "<div style='text-align:center'><img src='#{attachment.url}' style='height:#{height}px' /></div>"
+      geometry = Lipsiadmin::Attachment::Geometry.from_file(attachment.file)
+      style    = ""
+      # If the height exced our limit
+      if geometry.height > 350
+        style = "height:350px"
+      elsif geometry.width > 640
+        style = "height:640px"
+      end
+      html = "<div style='text-align:center'><img src='#{attachment.url}' style='#{style}' /></div>"
     end
     
-    html += "<div style='padding:10px;text-align:center'>Link: #{attachment.url}</div>"
+    html += "<div style='padding:10px;text-align:center;background-color:#FFF;font-size:13px'>#{attachment.url}</div>"
     
     render :text => html
   end

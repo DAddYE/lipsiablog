@@ -13,7 +13,6 @@ Community:: http://groups.google.com/group/lipsiadmin
 * Rails 2+
 * Haml 2+
 * Lipsiadmin 4.1+
-* Rmagick
 * CodeRay
 * ActionWebService
 
