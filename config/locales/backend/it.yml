@@ -28,6 +28,8 @@ it:
       box: "Box"
       settings: "Impostazioni"
       new: "Nuovo"
+      none: "Nessuno"
+      menu_item: "Menu {{i}}"
     labels:
       add: "Aggiungi"
       remove: "Rimuovi"

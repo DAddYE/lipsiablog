@@ -16,14 +16,14 @@
     %tr
       %td=human_name_for :post, :categories
       %td
-        %span#category_names=@post.categories.collect(&:name).join(", ") rescue "Nessuna"
+        %span#category_names=@post.categories.collect(&:name).join(", ") rescue t(:none, :scope => :"backend.menus")
         =hidden_field :post, :category_ids, :value => @post.category_ids.join(",")
         =open_grid image_tag("backend/new.gif", :style => "vertical-align:bottom"), "/backend/categories.js", "gridPanel", |
           :update => "$('post_category_ids').value = selections.collect(function(s) { return s.id }).join(',');"+ |
           "$('category_names').innerHTML = selections.collect(function(s) { return s.data['categories.name'] }).join(', ');" |
     %tr
       %td=human_name_for :post, :menu
-      %td=select :post, :menu, Setting.menu_range.collect { |i| [(i==0 ? "Nessuno" : "Menu #{i}"), i] }
+      %td=select :post, :menu, Setting.menu_range.collect { |i| [(i==0 ? t(:none, :scope => :"backend.menus") : t(:menu_item, :scope => :"backend.menus", :i => i)), i] }
     %tr
       %td=human_name_for :post, :position
       %td=text_field :post, :position

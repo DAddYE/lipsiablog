@@ -20,6 +20,8 @@ en:
       list: "List"
       new: "New"
       help: "Help"
+      none: "None"
+      menu_item: "Menu {{i}}"
     labels:
       comment:
         one: "1 Comment"
