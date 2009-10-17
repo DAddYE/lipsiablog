@@ -12,7 +12,7 @@ en:
       cantDelete: "You cannot delete this record."
     sessions:
       wrong: "Wrong email or password"
-      logout: "Correctly Logged Out"
+      logout: "Successfully Logged Out"
     menus:
       account: "Account"
       list_article: "List Article"
@@ -37,25 +37,25 @@ en:
         send: "Send"
       help:
         title: "Support request"
-        description: "Say us what problem do you have and how we can reproduce it"
-        compliments: "Your request was correctly delivered."
+        description: "Tell us what the problem is and how we can reproduce it"
+        compliments: "Your request was successfully delivered."
       labels:
         all: "All "
         search: "Search"
       messages:
         compliments: 
           title: "Congratulations"
-          message: "Your data are correctly saved."
+          message: "Your data was successfully saved."
         wait:
           title: "Sending Data"
           message: "Sending data to servers..."
         confirm:
           title: "Are you sure ?"
-          message: "Are you sure to destroy {0} element/s ?"
+          message: "Are you sure you want to destroy {0} element/s ?"
         alert:
           title: "Attention"
-          message: "There are some connection issues.<br />Contact tecnical support."
-          notConfigured: "This fatures is not ready yet.<br />Contact tecnical support."
+          message: "There are some connection issues.<br />Contact technical support."
+          notConfigured: "This feature is not ready yet.<br />Contact technical support."
           notSelected: "You must select at least one record"
 
     emails:
@@ -64,7 +64,7 @@ en:
         body: "Hello {{name}},\nyour account has been activated.\n\nYou can login with the following email/password:\n\n- Email: {{email}}\n- Password: {{password}}\n\nusing the following url: {{url}}"
       support:
         object: "Support Request"
-      footer: "\n---------------------------\nCordiali Saluti,\nLipsiaSoft s.r.l."
+      footer: "\n---------------------------\nSincerely,\nLipsiaSoft s.r.l."
     
     print:
       footer: 
@@ -118,7 +118,7 @@ en:
         dateFormat: "m/j/Y"
     search:
       searchText: "Search"
-      searchTipText: "Insert a word or press Search"
+      searchTipText: "Enter a word and click Search"
       selectAllText: "Select All"
       minCharsTipText: "Insert at least {0} characters"
     pagingToolbar:
