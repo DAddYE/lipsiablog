@@ -27,7 +27,7 @@
       =comment_box(comment)
   
   -if Setting.first.comments && @post.commentable
-    %p=image_tag "frontend/lipsiablog_37.png"
+    %h1 Leave a Comment
     
     -form_tag :action => :add_comment, :id => @post, :anchor => :form do
       =link_to "", "", :name => :form
