@@ -9,8 +9,8 @@ page.grid :editable => true do |grid|
   grid.store do |store|
     store.url "/backend/posts/#{params[:id]}.json"
     store.fields @column_store.store_fields
+    store.sortInfo  :field => "posts.created_at", :direction => "DESC"
   end
-  grid.before << "groupingStore.setDefaultSort('posts.created_at', 'DESC');"
   grid.columns do |columns|
     columns.fields @column_store.column_fields
   end

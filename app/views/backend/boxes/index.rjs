@@ -9,8 +9,8 @@ page.grid :editable => true do |grid|
   grid.store do |store|
     store.url "/backend/boxes.json"
     store.fields @column_store.store_fields
+    store.sortInfo  :field => "boxes.position", :direction => "DESC"
   end
-  grid.before << "groupingStore.setDefaultSort('boxes.position', 'DESC');"
   grid.columns do |columns|
     columns.fields @column_store.column_fields
   end

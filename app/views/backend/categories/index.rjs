@@ -9,8 +9,8 @@ page.grid do |grid|
   grid.store do |store|
     store.url "/backend/categories.json"
     store.fields @column_store.store_fields
+    store.sortInfo  :field => "categories.created_at", :direction => "DESC"
   end
-  grid.before << "groupingStore.setDefaultSort('categories.created_at', 'DESC');"
   grid.columns do |columns|
     columns.fields @column_store.column_fields
   end
